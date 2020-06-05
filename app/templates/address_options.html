@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "layout.html" %} {% block app_content %}
+<div class="container">
+  <ul>
+    <li>Grado de similitud: 93% 
+      <br><a href="{{ url_for('result1') }}">CALLE ARGENTEA</a></li>
+    <br>
+      <li>Grado de similitud: 90%
+      <br><a href="{{ url_for('result2') }}">CALLE ATAULFO ARGENTA </a></li>
+  </ul>
+</div>
+{% endblock %}

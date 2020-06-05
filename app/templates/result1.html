@@ -1,0 +1,140 @@
+﻿{% extends "layout.html" %} {% block app_content %}
+<div class="container-fluid">
+  <h3>Calle Argentea</h3>
+  <div class="row">
+    <div class="col-6">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link active"
+            id="g1-tab"
+            data-toggle="tab"
+            href="#g1"
+            role="tab"
+            aria-controls="g1"
+            aria-selected="true"
+            >Regimen de tenencia de la vivienda
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="g2-tab"
+            data-toggle="tab"
+            href="#g2"
+            role="tab"
+            aria-controls="g2"
+            aria-selected="false"
+            >Tamaño de las viviendas
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="g3-tab"
+            data-toggle="tab"
+            href="#g3"
+            role="tab"
+            aria-controls="g3"
+            aria-selected="false"
+            >Habitantes por vivienda
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="g4-tab"
+            data-toggle="tab"
+            href="#g4"
+            role="tab"
+            aria-controls="g4"
+            aria-selected="false"
+            >Cotización media de las viviendas unifamiliares
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="g5-tab"
+            data-toggle="tab"
+            href="#g5"
+            role="tab"
+            aria-controls="g5"
+            aria-selected="false"
+            >Cotización media de los pisos
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="g6-tab"
+            data-toggle="tab"
+            href="#g6"
+            role="tab"
+            aria-controls="g6"
+            aria-selected="false"
+            >Indicadores de renta de unidad familiar
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="g1"
+          role="tabpanel"
+          aria-labelledby="g1-tab"
+        >
+        {% include 'argentea/table1.html' %}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="g2"
+          role="tabpanel"
+          aria-labelledby="g2-tab"
+        >
+        {% include 'argentea/table2.html' %}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="g3"
+          role="tabpanel"
+          aria-labelledby="g3-tab"
+        >
+        {% include 'argentea/table3.html' %}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="g4"
+          role="tabpanel"
+          aria-labelledby="g4-tab"
+        >
+        {% include 'argentea/table4.html' %}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="g5"
+          role="tabpanel"
+          aria-labelledby="g5-tab"
+        >
+        {% include 'argentea/table5.html' %}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="g6"
+          role="tabpanel"
+          aria-labelledby="g6-tab"
+        >
+        {% include 'argentea/table6.html' %}
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <iframe
+        src="{{ url_for('map_result1') }}"
+        width="100%"
+        height="750"
+      ></iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}

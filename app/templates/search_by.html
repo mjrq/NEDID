@@ -1,0 +1,55 @@
+<!doctype html>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block app_content %}
+<div class="row">
+    <h2>{{ title }}</h2>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <form method="POST">
+            {{ wtf.form_field(search.id) }}
+            {{ wtf.form_field(search.submit) }}
+        </form>
+    </div>
+    <div class="col-md">
+        <!--Visualización Tabla -->
+        {% if table %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Request ID</td>
+                    <td>Client ID</td>
+                    <td>Provincia</td>
+                    <td>Municipio</td>
+                    <td>Address</td>
+                    <td>Init date</td>
+                    <td>End date</td>
+                    <td>Request status</td>
+                    <td>Tipo Via</td>
+                    <td>Nombre Via</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rellenar la tabla -->
+                {% for t in table  %}
+                <tr>
+                    <td>{{ t.request_id }}</td><!-- Request ID -->
+                    <td>{{ t.client_id }}</td><!-- Client ID -->
+                    <td>{{ t.provincia }}</td>
+                    <td>{{ t.municipio }}</td>
+                    <td>{{ t.address}}</td><!-- Address -->
+                    <td>{{ t.init_date }}</td><!-- Init_date -->
+                    <td>{{ t.end_date }}</td><!-- End_date -->
+                    <td>{{ t.req_status }}</td><!-- Request_status -->
+                    <td>{{ t.tipo_via}}</td><!-- End_date -->
+                    <td>{{ t.nombre_via }}</td><!-- Request_status -->
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

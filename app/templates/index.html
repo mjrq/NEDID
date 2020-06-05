@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "layout.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block
+app_content %}
+<div class="container">
+    <h1>NEDiF</h1>
+    <h4>Normalizador y Enriquecedor de Direcciones Físicas</h4>
+  <form method="POST" action="/">
+    {{ form.csrf_token }}
+    <div class="dropdown">{{ wtf.form_field(form.provincia) }}</div>
+    <div class="dropdown">{{ wtf.form_field(form.municipio) }}</div>
+    <div class="form-field">
+      {{ wtf.form_field(form.address) }} {% if form.address.errors %}
+      <ul class="errors">
+        {% for error in form.address.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {{ wtf.form_field(form.enviar) }}
+  </form>
+  <script>
+    let pro_select = document.getElementById("provincia");
+    let mun_select = document.getElementById("municipio");
+
+    pro_select.onchange = function () {
+      provincia = pro_select.value;
+      fetch("/municipios/" + provincia).then(function (response) {
+        response.json().then(function (data) {
+          let optionHTML = "";
+          for (let mun of data.municipios) {
+            optionHTML +=
+              '<option value="' + mun.CMUN + '">' + mun.NOMBRE + "</option>";
+          }
+
+          mun_select.innerHTML = optionHTML;
+        });
+      });
+    };
+  </script>
+</div>
+{% endblock %}
