@@ -28,7 +28,7 @@ MarkupSafe==1.1.1
 marshmallow==3.6.0
 marshmallow-sqlalchemy==0.23.0
 murmurhash==1.0.2
-numpy==1.18.4
+numpy==1.22.0
 pandas==1.0.4
 pkg-resources==0.0.0
 plac==1.1.3
